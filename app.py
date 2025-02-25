@@ -20,5 +20,18 @@ def get_external_data(user_id):
 
     return jsonify(response.json())
 
+@app.route("/reverse-string", methods=["POST"])
+def fetch_embeddings():
+    """Query to OpenAi"""
+    data = request.get_json()
+
+    if not data or "query" not in data:
+        return jsonify({"error": "Please provide a 'query' field in JSON"}), 400
+    text = data["query"]
+    #Open AI call
+    reversed_text = text[::-1]
+    
+    return jsonify({"original": text, "reversed": reversed_text})
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
