@@ -8,7 +8,7 @@ THIRD_PARTY_API = "https://jsonplaceholder.typicode.com/users"
 
 @app.route("/")
 def home():
-    return jsonify({"message": "Welcome to Flask with 3rd Party API Call!"})
+    return jsonify({"message": "Welcome to Radar Clone"})
 
 @app.route("/external-data/<int:user_id>", methods=["GET"])
 def get_external_data(user_id):
